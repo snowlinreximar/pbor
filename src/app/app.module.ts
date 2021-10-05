@@ -9,6 +9,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AppRoutingModule } from './app-routing-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { AppRoutingModule } from './app-routing-module';
   imports: [
     BrowserModule, 
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
