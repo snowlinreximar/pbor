@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -33,9 +33,16 @@ export class SignupComponent implements OnInit {
         alert("Signup Successful!");
         this.signupForm.reset();
         this.router.navigate(['signin']);
-      }, err=> {
+      }, (err: HttpErrorResponse)=> {
+        if (err.status == 409){
+            alert("Email exists. Proceed to Signin");
+            this.signupForm.reset();
+            this.router.navigate(['signin']);
+        }
+        else{
         alert("Something went wrong!");
         console.log(err);
+        }
       })                               
   }
 

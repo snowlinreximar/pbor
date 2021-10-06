@@ -19,4 +19,8 @@ export class ButtonComponent implements OnInit {
     this.btnClick.emit();
   }
 
+  signout(){
+    localStorage.removeItem('token');
+  }
+
 }
